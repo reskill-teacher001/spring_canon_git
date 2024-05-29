@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>データ受信</title>
+</head>
+<body>
+	<h1>データ受信</h1>
+	<hr>
+	名前：[[${name}]]<br>
+	年齢：[[${age}]]<br>
+	好きなフルーツ：<br>
+	
+	<span th:if="${fruits}">
+		フルーツが選択されていません。<br>
+	</span>
+	<span th:unless="${fruits}">
+		<ul>
+			<li th:each="f:${fruits}">[[${f}]]</li>
+		</ul>
+	</span>
+</body>
+</html>
