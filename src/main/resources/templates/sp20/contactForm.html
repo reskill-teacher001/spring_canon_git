@@ -7,6 +7,8 @@
 <body>
 	<h1>研修お問い合わせ</h1>
 	
+	<div th:if="${error} != null">・[[${error}]]</div>
+	
 	<form action="/sp20/contact" method="post">
 		<table border="1">
 			<tr>

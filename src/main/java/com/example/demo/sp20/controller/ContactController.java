@@ -18,10 +18,19 @@ public class ContactController {
 
 	@PostMapping("/contact")
 	public String contact(
-			@RequestParam("name") String name,
+			@RequestParam(name="name", required=false) String name,
 			@RequestParam("email") String email,
 			Model model
 	) {
+		
+		if (name == null) {
+			return "sp20/contactForm";
+		}
+		
+		if (name.equals("")) {
+			model.addAttribute("error", "名前は必須です");
+			return "sp20/contactForm";
+		}
 		
 		model.addAttribute("name", name);
 		model.addAttribute("email", email);
