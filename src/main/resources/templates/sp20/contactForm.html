@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ログイン</title>
+</head>
+<body>
+	<h1>研修お問い合わせ</h1>
+	
+	<form action="/sp20/contact" method="post">
+		<table border="1">
+			<tr>
+				<th>お名前[必須]</th>
+				<td><input type="text" name="name"></td>
+			</tr>
+			<tr>
+				<th>メールアドレス[必須]</th>
+				<td><input type="text" name="email"></td>
+			</tr>
+		</table>
+		
+		<br>
+		
+		<input type="submit" value="送信">
+	</form>
+</body>
+</html>
