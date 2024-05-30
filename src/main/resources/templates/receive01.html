@@ -26,6 +26,7 @@
 	<a th:href="@{/abc(id=${id})}">リンク</a><br>
 	<a th:href="|/abc?id=${id}&age=${age}|">リンク</a><br>
 	<a th:href="@{/abc/{id}(id=${id})}">リンク</a><br>
+	<a th:href="|/abc/${id}|">リンク</a><br>
 	
 	<input type="text" name="AAA" th:value="${id}">
 </body>
