@@ -13,7 +13,7 @@ public class LoginController {
 
 	@GetMapping("/login")
 	public String index() {
-		return "sp11/index";
+		return "sp11/login";
 	}
 
 	@PostMapping("/login")
@@ -24,7 +24,7 @@ public class LoginController {
 	) {
 		//ログイン成功
 		if (userId.equals("student") && password.equals("himitu")) {
-			return "sp11/login";
+			return "sp11/index";
 		}
 		
 		//ログイン失敗
@@ -38,6 +38,6 @@ public class LoginController {
 		
 		model.addAttribute("error", error);
 		
-		return "sp11/index";
+		return "sp11/login";
 	}
 }
