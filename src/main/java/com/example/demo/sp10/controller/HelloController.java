@@ -28,8 +28,15 @@ public class HelloController {
 			@RequestParam(name="hobby", defaultValue="") String hobby,
 			Model model
 	) {
+		String memo = "未成年です";
+		
+		if (age >= 18) {
+			memo = "成人してから" + (age - 18) + "年たちました";
+		}
+		
 		model.addAttribute("name", name);
 		model.addAttribute("age", age);
+		model.addAttribute("memo", memo);
 		model.addAttribute("hobby", hobby);
 		
 		return "sp10/hello";
