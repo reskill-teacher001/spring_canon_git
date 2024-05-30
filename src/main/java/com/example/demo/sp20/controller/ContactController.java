@@ -25,7 +25,7 @@ public class ContactController {
 			@RequestParam("genre") String genre,
 			@RequestParam(name="lang", required=false) String[] lang,
 			@RequestParam("detail") String detail,
-			@RequestParam("dueDate") LocalDate dueDate,
+			@RequestParam(name="dueDate", required=false) LocalDate dueDate,
 			@RequestParam(name="name", required=false) String name,
 			@RequestParam("email") String email,
 			Model model
@@ -34,6 +34,19 @@ public class ContactController {
 		
 		if (name == null) {
 			return "sp20/contactForm";
+		}
+		
+		if (lang == null) {
+			errors.add("言語は必須です");
+		}
+		
+		if (dueDate != null) {
+			LocalDate today = LocalDate.now();
+			
+			//if (dueDate.isEqual(today) || dueDate.isBefore(today)) {
+			if (!dueDate.isAfter(today)) {
+				errors.add("実施予定日は翌日以降を選択してください");
+			}
 		}
 		
 		if (name.equals("")) {
