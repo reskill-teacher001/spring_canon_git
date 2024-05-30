@@ -11,13 +11,21 @@
 	年齢：[[${age}]]<br>
 	好きなフルーツ：<br>
 	
-	<span th:if="${fruits}">
+	<span th:if="${fruits} == null">
 		フルーツが選択されていません。<br>
 	</span>
-	<span th:unless="${fruits}">
+	<span th:unless="${fruits} == null">
 		<ul>
-			<li th:each="f:${fruits}">[[${f}]]</li>
+			<li th:each="f, status:${fruits}">[[${status.index}]]・・・[[${f}]]</li>
 		</ul>
 	</span>
+	
+	<br>
+	
+	<a href="/abc?id=${id}">リンク</a><br>
+	<a th:href="@{/abc(id=${id})}">リンク</a><br>
+	<a th:href="@{/abc/{id}(id=${id})}">リンク</a><br>
+	
+	<input type="text" name="AAA" th:value="${id}">
 </body>
 </html>

@@ -49,13 +49,12 @@ public class MyController01 {
 			Model m,
 			@RequestParam(name="name", defaultValue="名前なし") String name,
 			@RequestParam(name="age", defaultValue="0") Integer age,
-			@RequestParam(name="fruits", defaultValue="") String[] fruits
+			@RequestParam(name="fruits", required=false) String[] fruits
 	) {
 		m.addAttribute("name", name);
 		m.addAttribute("age", age);
 		m.addAttribute("fruits", fruits);
-		
-		System.out.println(fruits);
+		m.addAttribute("id", 1);
 		
 		return "receive01";
 	}
