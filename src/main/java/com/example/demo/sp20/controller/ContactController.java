@@ -1,5 +1,6 @@
 package com.example.demo.sp20.controller;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +22,10 @@ public class ContactController {
 
 	@PostMapping("/contact")
 	public String contact(
+			@RequestParam("genre") String genre,
+			@RequestParam(name="lang", required=false) String[] lang,
+			@RequestParam("detail") String detail,
+			@RequestParam("dueDate") LocalDate dueDate,
 			@RequestParam(name="name", required=false) String name,
 			@RequestParam("email") String email,
 			Model model
@@ -48,6 +53,18 @@ public class ContactController {
 			return "sp20/contactForm";
 		}
 		
+		String langList = "";
+		
+		if (lang != null) {
+			for (String la : lang) {
+				langList += la + ",";
+			}
+		}
+		
+		model.addAttribute("genre", genre);
+		model.addAttribute("langList", langList);
+		model.addAttribute("detail", detail);
+		model.addAttribute("dueDate", dueDate);
 		model.addAttribute("name", name);
 		model.addAttribute("email", email);
 

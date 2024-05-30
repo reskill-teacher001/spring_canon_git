@@ -5,12 +5,24 @@
 <title>ログイン</title>
 </head>
 <body>
-	<h1>お問い合わせありがとうございます</h1>
+	<h1>[[${genre}]]ありがとうございます</h1>
 	
 	<div>以下の内容にて受け付けました</div>
 	
 	
 	<table border="1">
+		<tr>
+			<th>言語</th>
+			<td>[[${langList}]]</td>
+		</tr>
+		<tr>
+			<th>詳細内容</th>
+			<td>[[${detail}]]</td>
+		</tr>
+		<tr>
+			<th>実施予定日</th>
+			<td>[[${dueDate}]]</td>
+		</tr>
 		<tr>
 			<th>お名前</th>
 			<td>[[${name}]]</td>
